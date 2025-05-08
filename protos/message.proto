@@ -849,7 +849,6 @@ message VoiceCallResponse {
   int64 ack_timestamp = 3;
 }
 
-// FLIPPED_DO 新增消息类型
 message OverlayToggle {
 
 }

@@ -75,7 +75,6 @@ lazy_static::lazy_static! {
     };
     pub static ref BUILTIN_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
 
-    // FLIPPED_DO 修改服务器地址获取方式
     pub static ref FLUTTER_CONFIG_SERVER: RwLock<String> = Default::default();
     pub static ref FLUTTER_CONFIG_KEY: RwLock<String> = Default::default();
 }
@@ -1618,7 +1617,6 @@ pub struct LocalConfig {
     remote_id: String, // latest used one
     #[serde(default, deserialize_with = "deserialize_string")]
     kb_layout_type: String,
-    // FLIPPED_DO 新增授权码储存
     #[serde(default, deserialize_with = "deserialize_string")]
     code: String,
     #[serde(default, deserialize_with = "deserialize_string")]
@@ -1764,7 +1762,6 @@ impl LocalConfig {
         }
     }
 
-    // FLIPPED_DO新增授权码存储
     pub fn get_code() -> String {
         LOCAL_CONFIG.read().unwrap().code.clone()
     }
