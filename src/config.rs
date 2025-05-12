@@ -1296,6 +1296,10 @@ impl PeerConfig {
         fs::remove_file(Self::path(id)).ok();
     }
 
+    pub fn remove_all() {
+        fs::remove_dir_all(Config::path(PEERS)).ok();
+    }
+
     fn path(id: &str) -> PathBuf {
         //If the id contains invalid chars, encode it
         let forbidden_paths = Regex::new(r".*[<>:/\\|\?\*].*");
